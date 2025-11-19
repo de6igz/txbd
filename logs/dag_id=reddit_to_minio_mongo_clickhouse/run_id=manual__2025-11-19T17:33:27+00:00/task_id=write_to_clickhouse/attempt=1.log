@@ -1,0 +1,11 @@
+{"timestamp":"2025-11-19T17:33:32.728270Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2025-11-19T17:33:32.728631Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/reddit_to_storages.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-11-19T17:33:32.798370Z","level":"warning","event":"The `airflow.operators.python.PythonOperator` attribute is deprecated. Please use `'airflow.providers.standard.operators.python.PythonOperator'`.","category":"DeprecatedImportWarning","filename":"/opt/airflow/dags/reddit_to_storages.py","lineno":9,"logger":"py.warnings"}
+{"timestamp":"2025-11-19T17:33:32.821170Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2025-11-19T17:33:32.821307Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2025-11-19T17:33:32.821356Z","level":"info","event":"Current task name:write_to_clickhouse","logger":"task.stdout"}
+{"timestamp":"2025-11-19T17:33:32.821401Z","level":"info","event":"Dag name:reddit_to_minio_mongo_clickhouse","logger":"task.stdout"}
+{"timestamp":"2025-11-19T17:33:32.871607Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":215}
+{"timestamp":"2025-11-19T17:33:32.877668Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2025-11-19T17:33:32.877771Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2025-11-19T17:33:32.877866Z","level":"info","event":"Task operator:<Task(PythonOperator): write_to_clickhouse>","logger":"task.stdout"}
