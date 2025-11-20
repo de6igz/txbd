@@ -74,7 +74,7 @@ def load_comments_to_mongo():
 
     client = MongoClient("mongodb://mongo:27017")
     db = client.reddit
-    coll = db.comments_multi  # отдельная коллекция для много-постовых комментов
+    coll = db.comments_multi
 
     coll.insert_many(all_comments)
 
