@@ -373,6 +373,36 @@ services:
         soft: 262144
         hard: 262144
 
+  superset:
+    image: apache/superset:latest
+    container_name: superset
+    user: "0:0"
+    environment:
+      SUPERSET_SECRET_KEY: "this_is_a_very_secret_key_change_me"
+      SUPERSET_SQLALCHEMY_DATABASE_URI: postgresql+psycopg2://airflow:airflow@postgres/airflow
+      SUPERSET_LOAD_EXAMPLES: "no"
+      TZ: "Europe/Moscow"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8088:8088"
+    volumes:
+      - ./superset_home:/app/superset_home
+    command: >
+      /bin/bash -c "
+        python -m ensurepip --upgrade &&
+        python -m pip install --no-cache-dir 'clickhouse-connect>=0.6.20,<1.0' &&
+        superset db upgrade &&
+        superset fab create-admin
+          --username admin
+          --firstname admin
+          --lastname admin
+          --email admin@admin.com
+          --password admin || true &&
+        superset init &&
+        gunicorn --bind 0.0.0.0:8088 'superset.app:create_app()'
+      "
 
 volumes:
   postgres-db-volume:

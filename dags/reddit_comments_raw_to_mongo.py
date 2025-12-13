@@ -46,7 +46,7 @@ def load_comments_to_mongo():
             continue
 
         comments = c_json[1].get("data", {}).get("children", [])
-        # ограничить количество комментов на пост
+
         for c in comments[:50]:
             cd = c.get("data", {})
             if "body" not in cd:
